@@ -136,7 +136,7 @@
 }
 
 -(void)setPosIconString:(NSString *)posIconString{
-    [self.posIconImageView sd_setImageWithURL:[NSURL URLWithString:posIconString] placeholderImage:[UIImage imageNamed:zwt_POS_242_242]];
+    [self.posIconImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://xrc.oss-cn-hangzhou.aliyuncs.com/%@", posIconString]] placeholderImage:[UIImage imageNamed:zwt_POS_242_242]];
 }
 
 -(void)setPosNameString:(NSString *)posNameString{

@@ -80,8 +80,6 @@
     }
     PosListModel *model = self.dataArray[indexPath.row];
     
-    
-    applyPosTableViewCell.posIconString = @"";
     applyPosTableViewCell.posListModel = model;
     applyPosTableViewCell.posNameString = model.pos_name;
     applyPosTableViewCell.posInstructionsString = model.pos_introduce;

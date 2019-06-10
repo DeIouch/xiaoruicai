@@ -97,7 +97,6 @@
         self.cardNumberLabel.hidden = YES;
     }else{
         self.cardNumberLabel.text = [NSString stringWithFormat:@"%@张卡片", cardNumberString];
-        
         self.cardNumberLabel.frame = CGRectMake((40 + 12 * ([cardNumberString intValue] > 4 ? 4 : [cardNumberString intValue])) * (DelouchWidth / 375.0), 65 * (DelouchWidth / 375.0), 100 * (DelouchWidth / 375.0), 13 * (DelouchWidth / 375.0));
         
         self.collectionView.frame = CGRectMake(25 * (DelouchWidth / 375.0), 63 * (DelouchWidth / 375.0), (5 + 12 * ([cardNumberString intValue] > 4 ? 4 : [cardNumberString intValue])) * (DelouchWidth / 375.0), (DelouchWidth / 375.0) * 17);
@@ -113,9 +112,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CardHolderCollectionViewCell *cell = (CardHolderCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"CardHolderCollectionViewCell" forIndexPath:indexPath];
-    
-    cell.bankIconString = @"zwt_yuan_128";
-    
+    cell.bankIconString = @"zwt_yuan_128";    
     return cell;
 }
 

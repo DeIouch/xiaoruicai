@@ -143,80 +143,80 @@
 
 
 
-//#define MyinfoIPURL @"http://47.112.147.184:8080/credit_manage_v1.0/appMyinfo/1553051375184/"
+#define MyinfoIPURL @"http://47.112.147.184:8080/credit_manage_v1.0/appMyinfo/1553051375184/"
+
+#define AppIndexIPURL @"http://47.112.147.184:8080/credit_manage_v1.0/appIndex/1553051375184/"
+
+#define AppOperationTodayURL @"http://47.112.147.184:8080/credit_manage_v1.0/appOperationToday/1553051375184/"
+
+#define AppInfoURL @"http://47.112.147.184:8080/credit_manage_v1.0/appInfo/1553051375184/"
+
+#define AppCustomersURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCustomers/1553051375184/"
+
+#define AppCardPlanURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCardPlan/1553051375184/"
+
+#define AppPostURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPost/1553051375184/"
+
+#define AppCardsURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCards/1553051375184/"
+
+#define AppCardFinanceURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCardFinance/1553051375184/"
+
+#define AppPosTypeURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPosType/1553051375184/"
+
+#define VipPackageListURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPackage/1553051375184/"
+
+#define OSSUploadFileURL @"http://47.112.147.184:8080/credit_manage_v1.0/ossUpload/"
+
+#define OSSUploadPhotoURL @"http://47.112.147.184:8080/credit_manage_v1.0/leshua/"
+
+#define PosActivatedURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPos/1553051375184/"
+
+#define BankIdentifierURL @"http://47.112.147.184:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+
+#define AppAreaCodeURL @"http://47.112.147.184:8080/credit_manage_v1.0/appAreaCode/1553051375184/"
+
+#define AppBankInfoURL @"http://47.112.147.184:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+
+#define AppPosURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPos/1553051375184/"
+
+
+
+
+//#define MyinfoIPURL @"http://192.168.4.119:8080/credit_manage_v1.0/appMyinfo/1553051375184/"
 //
-//#define AppIndexIPURL @"http://47.112.147.184:8080/credit_manage_v1.0/appIndex/1553051375184/"
+//#define AppIndexIPURL @"http://192.168.4.119:8080/credit_manage_v1.0/appIndex/1553051375184/"
 //
-//#define AppOperationTodayURL @"http://47.112.147.184:8080/credit_manage_v1.0/appOperationToday/1553051375184/"
+//#define AppOperationTodayURL @"http://192.168.4.119:8080/credit_manage_v1.0/appOperationToday/1553051375184/"
 //
-//#define AppInfoURL @"http://47.112.147.184:8080/credit_manage_v1.0/appInfo/1553051375184/"
+//#define AppInfoURL @"http://192.168.4.119:8080/credit_manage_v1.0/appInfo/1553051375184/"
 //
-//#define AppCustomersURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCustomers/1553051375184/"
+//#define AppCustomersURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCustomers/1553051375184/"
 //
-//#define AppCardPlanURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCardPlan/1553051375184/"
+//#define AppCardPlanURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCardPlan/1553051375184/"
 //
-//#define AppPostURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPost/1553051375184/"
+//#define AppPostURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPost/1553051375184/"
 //
-//#define AppCardsURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCards/1553051375184/"
+//#define AppCardsURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCards/1553051375184/"
 //
-//#define AppCardFinanceURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCardFinance/1553051375184/"
+//#define AppCardFinanceURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCardFinance/1553051375184/"
 //
-//#define AppPosTypeURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPosType/1553051375184/"
+//#define AppPosTypeURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPosType/1553051375184/"
 //
-//#define VipPackageListURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPackage/1553051375184/"
+//#define VipPackageListURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPackage/1553051375184/"
 //
-//#define OSSUploadFileURL @"http://47.112.147.184:8080/credit_manage_v1.0/ossUpload/"
+//#define OSSUploadFileURL @"http://192.168.4.119:8080/credit_manage_v1.0/ossUpload/"
 //
-//#define OSSUploadPhotoURL @"http://47.112.147.184:8080/credit_manage_v1.0/leshua/"
+//#define OSSUploadPhotoURL @"http://192.168.4.119:8080/credit_manage_v1.0/leshua/"
 //
-//#define PosActivatedURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPos/1553051375184/"
+//#define PosActivatedURL @"http://192.168.4.119:8080/appPos/appAreaCode/1553051375184/"
 //
-//#define BankIdentifierURL @"http://47.112.147.184:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+//#define BankIdentifierURL @"http://192.168.4.119:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
 //
-//#define AppAreaCodeURL @"http://47.112.147.184:8080/credit_manage_v1.0/appAreaCode/1553051375184/"
+//#define AppAreaCodeURL @"http://192.168.4.119:8080/credit_manage_v1.0/appAreaCode/1553051375184/"
 //
-//#define AppBankInfoURL @"http://47.112.147.184:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+//#define AppBankInfoURL @"http://192.168.4.119:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
 //
-//#define AppPosURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPos/1553051375184/"
-
-
-
-
-#define MyinfoIPURL @"http://192.168.4.119:8080/credit_manage_v1.0/appMyinfo/1553051375184/"
-
-#define AppIndexIPURL @"http://192.168.4.119:8080/credit_manage_v1.0/appIndex/1553051375184/"
-
-#define AppOperationTodayURL @"http://192.168.4.119:8080/credit_manage_v1.0/appOperationToday/1553051375184/"
-
-#define AppInfoURL @"http://192.168.4.119:8080/credit_manage_v1.0/appInfo/1553051375184/"
-
-#define AppCustomersURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCustomers/1553051375184/"
-
-#define AppCardPlanURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCardPlan/1553051375184/"
-
-#define AppPostURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPost/1553051375184/"
-
-#define AppCardsURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCards/1553051375184/"
-
-#define AppCardFinanceURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCardFinance/1553051375184/"
-
-#define AppPosTypeURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPosType/1553051375184/"
-
-#define VipPackageListURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPackage/1553051375184/"
-
-#define OSSUploadFileURL @"http://192.168.4.119:8080/credit_manage_v1.0/ossUpload/"
-
-#define OSSUploadPhotoURL @"http://192.168.4.119:8080/credit_manage_v1.0/leshua/"
-
-#define PosActivatedURL @"http://192.168.4.119:8080/appPos/appAreaCode/1553051375184/"
-
-#define BankIdentifierURL @"http://192.168.4.119:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
-
-#define AppAreaCodeURL @"http://192.168.4.119:8080/credit_manage_v1.0/appAreaCode/1553051375184/"
-
-#define AppBankInfoURL @"http://192.168.4.119:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
-
-#define AppPosURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPos/1553051375184/"
+//#define AppPosURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPos/1553051375184/"
 
 
 

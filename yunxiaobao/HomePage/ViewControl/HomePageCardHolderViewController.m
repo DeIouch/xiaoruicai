@@ -111,7 +111,7 @@
     cardHolderTableViewCell.userNameString = model.credit_real_name;
     cardHolderTableViewCell.userPhoneString = model.contact_phone;
     cardHolderTableViewCell.cardNumberString = model.cards_num;
-    
+        
 //    cardHolderTableViewCell.cardNumberString = [NSString stringWithFormat:@"%ld", indexPath.row];
     cardHolderTableViewCell.appCustomersListModel = model;
     cardHolderTableViewCell.importBillBlock = ^(AppCustomersListModel * _Nonnull appCustomersListModel) {

@@ -72,7 +72,6 @@
         if (self.refreshIndex == 1) {
             [self.dataArray removeAllObjects];
         }
-        
         if ([obj[@"result"][@"planData"][@"page"] isKindOfClass:[NSArray class]]) {
             for (NSDictionary *dic in obj[@"result"][@"planData"][@"page"]) {
                 [self.dataArray addObject:[[TodayPlanListModel alloc]initModelWithDic:dic]];

@@ -1,0 +1,82 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - AlipaySDK-iOS (15.5.9)
+  - BRPickerView (2.2.1)
+  - HHRefreshManager (1.1.1)
+  - IQKeyboardManager (6.3.0)
+  - LSLaunchAD (0.0.3):
+    - SDWebImage
+  - Masonry (1.1.0)
+  - MoxieSDK-iOS (2.4.4)
+  - pop (1.0.12)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
+  - TZImagePickerController (3.2.0)
+  - WechatOpenSDK (1.8.4)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AlipaySDK-iOS
+  - BRPickerView
+  - HHRefreshManager
+  - IQKeyboardManager
+  - LSLaunchAD
+  - Masonry
+  - MoxieSDK-iOS
+  - pop
+  - SDCycleScrollView
+  - SDWebImage
+  - TZImagePickerController
+  - WechatOpenSDK
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - AlipaySDK-iOS
+    - BRPickerView
+    - HHRefreshManager
+    - IQKeyboardManager
+    - LSLaunchAD
+    - Masonry
+    - MoxieSDK-iOS
+    - pop
+    - SDCycleScrollView
+    - SDWebImage
+    - TZImagePickerController
+    - WechatOpenSDK
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AlipaySDK-iOS: 1c5283b30977a24acecc0114662697f7dc78f618
+  BRPickerView: 0590a8c5de9bd98c6b4e4f117a3dff6de287d5b2
+  HHRefreshManager: aa83853d8aa2de31e77e119e87b535e8780ea823
+  IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
+  LSLaunchAD: b34f434d4d23a8f5b47950431f7ed301d549e061
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MoxieSDK-iOS: cbd286daef4ca6ec86cb00e86228d4d4366ccc70
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
+  TZImagePickerController: 7850b158d025065b162a1a963d445040b828abc9
+  WechatOpenSDK: 9b721089507c895d05f997408c30bb6e6f5f9b60
+
+PODFILE CHECKSUM: 3dc5ece50db9d67b9fa8f28a93633364f26ab435
+
+COCOAPODS: 1.6.1

@@ -1,0 +1,27 @@
+//
+//  PosPayMentResultViewController.h
+//  yunxiaobao
+//
+//  Created by 睿子金服 on 2019/5/15.
+//  Copyright © 2019 rzjf. All rights reserved.
+//
+
+#import "DelouchViewController.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface PosPayMentResultViewController : DelouchViewController
+
+/**
+ 支付结果
+ */
+@property(nonatomic, strong)NSString *payResultString;
+
+/**
+ 价格
+ */
+@property(nonatomic, strong)NSString *moneyString;
+
+@end
+
+NS_ASSUME_NONNULL_END

@@ -1,0 +1,465 @@
+//
+//  PrefixHeader.pch
+//  yunxiaobao
+//
+//  Created by 睿子金服 on 2019/5/10.
+//  Copyright © 2019 rzjf. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+#define DelouchWidth [UIScreen mainScreen].bounds.size.width
+
+#define DelouchHeight [UIScreen mainScreen].bounds.size.height
+
+#define DelouchScreen [UIScreen mainScreen].bounds.size.width/375.0
+
+#define DelouchIphoneX_XS (DelouchWidth == 375.f && DelouchHeight == 812.f ? YES : NO)
+
+#define DelouchIphoneXR_XSMax (DelouchWidth == 414.f && DelouchHeight == 896.f ? YES : NO)
+
+#define DelouchFullScreen (DelouchIphoneX_XS || DelouchIphoneXR_XSMax)
+
+#define DelouchStatusBarHeight (DelouchFullScreen ? 44.f : 20.f)
+
+#define DelouchNavigationBarHeight 44.f
+
+#define DelouchTabbarHeight (DelouchFullScreen ? (49.f+34.f) : 49.f)
+
+#define DelouchTabbarSafeBottomMargin (DelouchFullScreen ? 34.f : 0.f)
+
+#define DelouchStatusBarAndNavigationBarHeight (DelouchFullScreen ? 88.f : 64.f)
+
+#import <IQKeyboardManager.h>
+#import "LSProgressHUD.h"
+#import "DelouchViewController.h"
+#import <UIImageView+WebCache.h>
+#import <AFNetworking.h>
+#import "ImageName.h"
+#import <Masonry.h>
+#import <SDCycleScrollView.h>
+#import "HEMenu.h"
+#import <POP.h>
+#import "AndyDropDownList.h"
+#import <BRPickerView.h>
+#import <HHRefreshManager.h>
+#import "WKProgressHUD.h"
+#import "GoToRealNameView.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import <MoxieSDK.h>
+#import "QueryPackageByOrderModel.h"
+#import <WXApi.h>
+#import "ShareView.h"
+#import "NotVipView.h"
+#import "VipOverdueView.h"
+
+
+
+#define MXApiKey @"c73cc93e2769472e88cdf6e7092b577e"
+
+#define MXShareKey @"wxdef71ea566f7286eaae87b03b486b70750fb9dcb575fd446"
+
+
+
+//  Model
+#import "HomepageBannerModel.h"
+#import "HomePageMyAmountModel.h"
+#import "HomePageMyMemberModel.h"
+#import "HomePageRepaymentModel.h"
+#import "AppCustomersListModel.h"
+#import "AppQueryCardModel.h"
+#import "QueryAmontDetailsAndUsersModel.h"
+#import "NeedToPlanModel.h"
+#import "PosListModel.h"
+#import "AddressModel.h"
+#import "UserAmountDetailsListModel.h"
+#import "UserMemberModel.h"
+#import "CountTypeMoneyModel.h"
+#import "ScheduleModel.h"
+#import "CardListModel.h"
+#import "QueryCardsShoppingSheetListModel.h"
+#import "QueryCardsShoppingSheetModel.h"
+#import "FinancesListModel.h"
+#import "MywithdrawsModel.h"
+#import "AppQueryMealSettingsListModel.h"
+#import "OperatingListModel.h"
+#import "TodayPlanListModel.h"
+#import "PlanOperationalModel.h"
+#import "OperationalRecordModel.h"
+#import "CreatePlanModel.h"
+#import "ACMediaPickerManager.h"
+#import "AppPosModel.h"
+#import "LongContentTextView.h"
+#import "QueryBankInfoByBankNameModel.h"
+#import "CardRaiseCountListModel.h"
+#import "GetOperatingAmountModel.h"
+#import "GetOperatingInfoModel.h"
+#import "GetOperatingTitleModel.h"
+#import "CardRaiseListModel.h"
+#import "UpMoneyRecordInfoTableViewCell.h"
+
+
+
+
+//#define MyinfoIPURL @"http://47.112.147.184:8080/credit_manage_v1.0/appMyinfo/1553051375184/"
+//
+//#define AppIndexIPURL @"http://47.112.147.184:8080/credit_manage_v1.0/appIndex/1553051375184/"
+//
+//#define AppOperationTodayURL @"http://47.112.147.184:8080/credit_manage_v1.0/appOperationToday/1553051375184/"
+//
+//#define AppInfoURL @"http://47.112.147.184:8080/credit_manage_v1.0/appInfo/1553051375184/"
+//
+//#define AppCustomersURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCustomers/1553051375184/"
+//
+//#define AppCardPlanURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCardPlan/1553051375184/"
+//
+//#define AppPostURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPost/1553051375184/"
+//
+//#define AppCardsURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCards/1553051375184/"
+//
+//#define AppCardFinanceURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCardFinance/1553051375184/"
+//
+//#define AppPosTypeURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPosType/1553051375184/"
+//
+//#define VipPackageListURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPackage/1553051375184/"
+//
+//#define OSSUploadFileURL @"http://47.112.147.184:8080/credit_manage_v1.0/ossUpload/"
+//
+//#define OSSUploadPhotoURL @"http://47.112.147.184:8080/credit_manage_v1.0/leshua/"
+//
+//#define PosActivatedURL @"http://47.112.147.184:8080/appPos/appAreaCode/1553051375184/"
+//
+//#define BankIdentifierURL @"http://47.112.147.184:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+//
+//#define AppAreaCodeURL @"http://47.112.147.184:8080/credit_manage_v1.0/appAreaCode/1553051375184/"
+//
+//#define AppBankInfoURL @"http://47.112.147.184:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+
+
+
+//#define MyinfoIPURL @"http://47.112.147.184:8080/credit_manage_v1.0/appMyinfo/1553051375184/"
+//
+//#define AppIndexIPURL @"http://47.112.147.184:8080/credit_manage_v1.0/appIndex/1553051375184/"
+//
+//#define AppOperationTodayURL @"http://47.112.147.184:8080/credit_manage_v1.0/appOperationToday/1553051375184/"
+//
+//#define AppInfoURL @"http://47.112.147.184:8080/credit_manage_v1.0/appInfo/1553051375184/"
+//
+//#define AppCustomersURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCustomers/1553051375184/"
+//
+//#define AppCardPlanURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCardPlan/1553051375184/"
+//
+//#define AppPostURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPost/1553051375184/"
+//
+//#define AppCardsURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCards/1553051375184/"
+//
+//#define AppCardFinanceURL @"http://47.112.147.184:8080/credit_manage_v1.0/appCardFinance/1553051375184/"
+//
+//#define AppPosTypeURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPosType/1553051375184/"
+//
+//#define VipPackageListURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPackage/1553051375184/"
+//
+//#define OSSUploadFileURL @"http://47.112.147.184:8080/credit_manage_v1.0/ossUpload/"
+//
+//#define OSSUploadPhotoURL @"http://47.112.147.184:8080/credit_manage_v1.0/leshua/"
+//
+//#define PosActivatedURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPos/1553051375184/"
+//
+//#define BankIdentifierURL @"http://47.112.147.184:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+//
+//#define AppAreaCodeURL @"http://47.112.147.184:8080/credit_manage_v1.0/appAreaCode/1553051375184/"
+//
+//#define AppBankInfoURL @"http://47.112.147.184:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+//
+//#define AppPosURL @"http://47.112.147.184:8080/credit_manage_v1.0/appPos/1553051375184/"
+
+
+
+
+#define MyinfoIPURL @"http://192.168.4.119:8080/credit_manage_v1.0/appMyinfo/1553051375184/"
+
+#define AppIndexIPURL @"http://192.168.4.119:8080/credit_manage_v1.0/appIndex/1553051375184/"
+
+#define AppOperationTodayURL @"http://192.168.4.119:8080/credit_manage_v1.0/appOperationToday/1553051375184/"
+
+#define AppInfoURL @"http://192.168.4.119:8080/credit_manage_v1.0/appInfo/1553051375184/"
+
+#define AppCustomersURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCustomers/1553051375184/"
+
+#define AppCardPlanURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCardPlan/1553051375184/"
+
+#define AppPostURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPost/1553051375184/"
+
+#define AppCardsURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCards/1553051375184/"
+
+#define AppCardFinanceURL @"http://192.168.4.119:8080/credit_manage_v1.0/appCardFinance/1553051375184/"
+
+#define AppPosTypeURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPosType/1553051375184/"
+
+#define VipPackageListURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPackage/1553051375184/"
+
+#define OSSUploadFileURL @"http://192.168.4.119:8080/credit_manage_v1.0/ossUpload/"
+
+#define OSSUploadPhotoURL @"http://192.168.4.119:8080/credit_manage_v1.0/leshua/"
+
+#define PosActivatedURL @"http://192.168.4.119:8080/appPos/appAreaCode/1553051375184/"
+
+#define BankIdentifierURL @"http://192.168.4.119:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+
+#define AppAreaCodeURL @"http://192.168.4.119:8080/credit_manage_v1.0/appAreaCode/1553051375184/"
+
+#define AppBankInfoURL @"http://192.168.4.119:8080/credit_manage_v1.0/appBankInfo/1553051375184/"
+
+#define AppPosURL @"http://192.168.4.119:8080/credit_manage_v1.0/appPos/1553051375184/"
+
+
+
+#define appid  @"2019030163420573"
+
+
+//  注册（完成）
+#define UrlRegster @"Regster.do"
+
+//  登录（完成）
+#define UrlFrontLogin @"FrontLogin.do"
+
+//  注册获取短信的接口（完成）
+#define UrlAppPhoneCodeRegister @"AppPhoneCodeRegister.do"
+
+//  首页banner（完成）
+#define UrlQueryBannerImg @"queryBannerImg.do"
+
+//  我的收益（总收益）
+#define UrlQueryUserAmountProfit @"queryUserAmountProfit.do"
+
+//  我的收益（会员）（未用）
+#define UrlQueryUsersByUser @"queryUsersByUser.do"
+
+//  近期还款提醒
+#define UrlCardsList @"cardsList.do"
+
+//  个人收益（完成）
+#define UrlQueryUserAmountProfitMonth @"queryUserAmountProfitMonth.do"
+
+//  本期收益明细（完成）
+#define UrlQueryAmontDetailsAndUsers @"queryAmontDetailsAndUsers.do"
+
+//  客户管理（完成）
+#define UrlUserAmountDetailsList @"userAmountDetailsList.do"
+
+//  今日操作列表（完成）
+#define UrlTodayPlanList @"todayPlanList.do"
+
+//  支付宝验证（完成）
+#define UrlAlipayaAttestation @"AlipayaAttestation.do"
+
+//  身份证验证（完成）
+#define UrlIdnoVerify @"IdnoVerify.do"
+
+//  身份证验证获取短信接口（完成）
+#define UrlPhoneCode @"PhoneCode.do"
+
+//  修改密码(完成)
+#define UrlUpdatePwd @"UpdatePwd.do"
+
+//  忘记密码请求的短信接口(完成)
+#define UrlPhoneCodePwd @"PhoneCodePwd.do"
+
+//  忘记密码(完成)
+#define UrlPhoneUpdatePwd @"PhoneUpdatePwd.do"
+
+//  查询持卡人列表(完成)
+#define UrlAppCustomersList @"appCustomersList.do"
+
+//  添加持卡人(完成)
+#define UrlAppAddCustomersList @"appAddCustomersList.do"
+
+//  修改持卡人信息(完成)
+#define UrlUpdateCustomer @"updateCustomer.do"
+
+//  删除持卡人(完成)
+#define UrlAppDeleatCustomers @"appDeleatCustomers.do"
+
+//  卡中心(完成)
+#define UrlAppQueryCard @"appQueryCard.do"
+
+//  查询总的普通会员和vip会员（完成）
+#define UrlGetUserAndRecommandAcountSum @"getUserAndRecommandAcountSum.do"
+
+//  智能规划列表（完成）
+#define UrlNeedToPlan @"needToPlan.do"
+
+//  创建智能规划第一步
+#define UrlCreatePlanFirst @"createPlanFirst.do"
+
+//  购买POS（完成）
+#define UrlPosList @"posList.do"
+
+//  加载默认收货地址（完成）
+#define UrlGetDefaultAddress @"getDefaultAddress.do"
+
+//  新增收货地址（完成）
+#define UrlSaveAddress @"EditAndAddress.html"
+
+//  收货地址管理（完成）
+#define UrlGetAddressAll @"getAddressAll.do"
+
+//  删除地址（完成）
+#define UrlDelAddress @"delAddress.do"
+
+//  pos订单管理（未完成，明天加假数据）
+#define UrlQueryPackageByOrderListList @"queryPackageByOrderListList.do"
+
+//  根据月份查询收入与支出（完成）
+#define UrlCountTypeMoney @"countTypeMoney.do"
+
+//  根据月份分页收支明细（完成）
+#define UrlSchedule @"Schedule.do"
+
+//  卡片管理首页（完成）
+#define UrlCardList @"cardList.do"
+
+//  卡片详细信息（完成）
+#define UrlCardInfo @"cardInfo.do"
+
+//  账单明细（完成）
+#define UrlQueryCardsShoppingSheet @"queryCardsShoppingSheet.do"
+
+//  还款记录（没数据，完成）
+#define UrlQueryCardsShoppingSheetPAYMENTS @"queryCardsShoppingSheetPAYMENTS.do"
+
+//  消费记录（完成）
+#define UrlQueryCardsShoppingSheetSHOPPING @"queryCardsShoppingSheetSHOPPING.do"
+
+//  卡财务管理（完成）
+#define UrlFinancesList @"financesList.do"
+
+//  卡片结算（在修改，未完成）
+#define UrCardFinish @"cardFinish-1.do"
+
+//  卡付款（完成）
+#define UrlUpdateFinances @"updateFinances-1.do"
+
+//  删除卡片（完成）
+#define UrlDeleatCardsApp @"deleatCardsApp.do"
+
+//  获取余额信息（完成）
+#define UrlMywithdraws @"Mywithdraws.do"
+
+//  套餐收费（完成）
+#define UrlAppQueryMealSettingsList @"appQueryMealSettingsList.do"
+
+//  额度信息（完成）
+#define UrlAppQueryAmount @"appQueryAmount.do"
+
+//  收费方式（完成）
+#define UrlAppQueryMealSettingsListOther @"appQueryMealSettingsList.do"
+
+//  费用信息设置（完成）
+#define UrlUpdateCardsMealSetting @"updateCardsMealSetting.do"
+
+//  资金操作列表记录（完成）    规划类型:1还款 2消费
+#define UrlGetOperatingList @"getOperatingList.do"
+
+//  更改用户昵称（完成）
+#define UrlUpdateName @"UpdateName.do"
+
+//  消费操作、还款操作（完成）
+#define UrlPlanOperational @"planOperational.do"
+
+//  还款操作（完成）
+#define UrlUpdateCardPlansStatus @"updateCardPlansStatus.do"
+
+//  操作记录（完成）
+#define UrlOperationalRecord @"operationalRecord.do"
+
+//  资金动向提交（未完成）
+#define UrlCardsAmountEditSbt @"cardsAmountEditSbt.do"
+
+//  创建只能规划第二步（完成）
+#define UrlCreatePlanFirstSecond @"createPlanFirstSecond.do"
+
+//  创建智能规划提交（完成）
+#define UrlCreatePlan @"createPlan.do"
+
+//  创建智能规矩保存（完成）
+#define UrlSubmitPlan @"submitPlan.do"
+
+//  个人资料（完成）
+#define UrlMyList @"MyList.do"
+
+//  退出登陆（完成）
+#define UrlLoginExit @"loginExit.do"
+
+//  激活机具（完成）
+#define UrlAppPosType @"appPosType.do"
+
+//  支付宝扫码支付（完成）
+#define UrlAlipay @"alipay.do"
+
+
+#define UrlVipPackageList @"packageList.do"
+
+#define UrlUploadFile @"upload.do"
+
+#define UrlUploadPhoto @"photoUploadServlet.do"
+
+//  检查推荐人手机号码（完成）
+#define UrlCheckInvitationPhone @"checkInvitationPhone.do"
+
+//  标记还款、消费统计信息（完成）
+#define UrlGetOperatingCount @"getOperatingCount.do"
+
+#define UrlBankIdentifier @"queryBankInfoByBankName.do"
+
+#define UrlCheckPhone @"checkPhone.do"
+
+//  查询商户列表
+#define UrlShopList @"shopList.do"
+
+//  选择商户
+#define UrlSelectShop @"selectShop.do"
+
+#define UrlPosActivated @"posActivated.do"
+
+//  查询所有省
+#define UrlQeryAllProvince @"queryAllProvince.do"
+
+//  根据省编码查询市信息
+#define UrlQueryAreaByProvince @"queryAreaByProvince.do"
+
+//  根据银行名称查询银行信息（模糊查询）
+#define UrlQueryBankInfoByBankName @"queryBankInfoByBankName.do"
+
+//  修改头像
+#define UrlUpdateImmg @"UpdateImmg.do"
+
+//  激活pos机（进件）
+#define UrlPosActivated @"posActivated.do"
+
+//  选择商户
+#define UrlSelectShop @"selectShop.do"
+
+//  额度列表分组统计
+#define UrlGetCardRaiseCountList @"getCardRaiseCountList.do"
+
+//  修改计划状态为已操作
+#define UrlUpdatePlanStatus @"updatePlanStatus.do"
+
+//  提现
+#define UrlWithdraw @"withdraw.do"
+
+//  创建智能规划校验
+#define UrlCreatePlanValidate @"createPlanValidate.do"
+
+//  额度变动记录
+#define UrlGetCardRaiseList @"getCardRaiseList.do"
+
+//  刷新账单
+#define UrlSynchronizeBill @"synchronizeBill.do"

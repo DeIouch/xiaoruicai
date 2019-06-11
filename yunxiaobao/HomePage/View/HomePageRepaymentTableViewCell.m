@@ -173,7 +173,12 @@
 }
 
 -(void)setEndDayString:(NSString *)endDayString{
-    self.endDayLabel.text = endDayString;
+//    self.endDayLabel.text = endDayString;
+    if ([_asloStateString isEqualToString:@"2"]) {
+        self.asloStateLabel.text = [NSString stringWithFormat:@"逾期%@天", endDayString];
+    }else{
+        self.endDayLabel.text = endDayString;
+    }
 }
 
 -(void)setEndTimeString:(NSString *)endTimeString{
@@ -181,6 +186,7 @@
 }
 
 -(void)setAsloStateString:(NSString *)asloStateString{
+    _asloStateString = asloStateString;
     switch ([asloStateString intValue]) {
         case 0:
             {
@@ -206,7 +212,12 @@
             
         case 2:
             {
-                
+                self.remainingLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+                self.shouldAsloLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+                self.endDayLabel.textColor = [UIColor colorWithRed:255 / 255.0 green:68 / 255.0 blue:32 / 255.0 alpha:1];
+                self.endInstrucLabel.text = @"本期应还";
+                self.asloStateLabel.textColor = [UIColor colorWithRed:255 / 255.0 green:68 / 255.0 blue:32 / 255.0 alpha:1];
+//                self.asloStateLabel.text = @"天后出账";
             }
             break;
             

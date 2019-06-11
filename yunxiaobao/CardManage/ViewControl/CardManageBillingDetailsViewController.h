@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CardManageBillingDetailsViewController : DelouchViewController
 
-@property(nonatomic, strong)CardListModel *cardListModel;
+@property(nonatomic, strong)NeedToPlanModel *cardListModel;
 
 @end
 

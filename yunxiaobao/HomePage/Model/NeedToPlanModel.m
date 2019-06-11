@@ -77,6 +77,12 @@
         self.card_web_user_pwd = dic[@"card_web_user_pwd"];
 
         self.card_no = dic[@"card_no"];
+        
+        self.credit_real_name = dic[@"credit_real_name"];
+        
+        self.remaining_days = [dic[@"remaining_days"] stringValue];
+        
+        self.card_is_update_bill = [dic[@"card_is_update_bill"] stringValue];
 
     }
     return self;

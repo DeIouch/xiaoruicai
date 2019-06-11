@@ -185,6 +185,33 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy)NSString *card_no;
 
+/**
+ 用户姓名
+ */
+@property(nonatomic, copy)NSString *credit_real_name;
+
+/**
+ 状态
+ */
+@property(nonatomic, copy)NSString *stateString;
+
+/**
+ 到期时间
+ */
+@property(nonatomic, copy)NSString *dayString;
+
+@property(nonatomic, copy)NSString *remaining_days;
+
+/**
+ 本月月数
+ */
+@property(nonatomic, copy)NSString *mouthString;
+
+/**
+ 账单是否刷新
+ */
+@property(nonatomic, copy)NSString *card_is_update_bill;
+
 
 -(instancetype)initModelWithDic:(NSDictionary *)dic;
 

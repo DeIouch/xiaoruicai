@@ -2494,11 +2494,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M9Z4NURVTR;
+				DEVELOPMENT_TEAM = J5ULG23TK3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yunxiaobao/PrefixHeader.pch";
 				INFOPLIST_FILE = yunxiaobao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rzjf.yunxiaobao.ios.yunxiaobao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2515,11 +2515,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M9Z4NURVTR;
+				DEVELOPMENT_TEAM = J5ULG23TK3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/yunxiaobao/PrefixHeader.pch";
 				INFOPLIST_FILE = yunxiaobao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rzjf.yunxiaobao.ios.yunxiaobao;
 				PRODUCT_NAME = "$(TARGET_NAME)";

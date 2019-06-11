@@ -169,13 +169,13 @@
     [MoxieSDK shared].fromController = self;
     [MoxieSDK shared].delegate = self;
     
-//    if (![self.cardListModel.card_is_plan isEqualToString:@"1"]) {
-//        [self.guihuaButton addTarget:self action:@selector(guihua) forControlEvents:UIControlEventTouchUpInside];
-//    }
+    if (![self.cardListModel.card_is_plan isEqualToString:@"1"]) {
+        [self.guihuaButton addTarget:self action:@selector(guihua) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 -(void)guihua{
-    [self pushViewControl:@"SetIntelligentPlanViewController" propertyDic:nil];
+    [self pushViewControl:@"SetIntelligentPlanViewController" propertyDic:[NSDictionary dictionaryWithObjectsAndKeys:self.cardListModel, @"needToPlanModel", nil]];
 }
 
 -(void)receiveMoxieSDKResult:(NSDictionary *)resultDictionary{

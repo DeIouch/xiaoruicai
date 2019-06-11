@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  卡片信息model
  */
-@property(nonatomic, strong)CardListModel *cardListModel;
+@property(nonatomic, strong)NeedToPlanModel *cardListModel;
 
 @end
 

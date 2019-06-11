@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CardManageRecordsConsumptionViewController : DelouchViewController
 
-@property(nonatomic, strong)CardListModel *cardListModel;
+@property(nonatomic, strong)NeedToPlanModel *cardListModel;
 
 @end
 

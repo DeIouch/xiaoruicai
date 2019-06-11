@@ -67,7 +67,7 @@
         if ([obj[@"result"][@"cardData"][@"page"] isKindOfClass:[NSArray class]]) {
             for (NSDictionary *dic in obj[@"result"][@"cardData"][@"page"]) {
 //                if ([dic[@"dayString"] intValue] >= 0) {
-                    [self.dataArray addObject:[[CardListModel alloc]initModelWithDic:dic]];
+                    [self.dataArray addObject:[[NeedToPlanModel alloc]initModelWithDic:dic]];
 //                }
             }
         }
@@ -96,10 +96,8 @@
     if (!homePageRepaymentTableViewCell) {
         homePageRepaymentTableViewCell = [[HomePageRepaymentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomePageRepaymentTableViewCell"];
     }
-    CardListModel *model = self.dataArray[indexPath.row];
-    
-//    homePageRepaymentTableViewCell.bankIconString = @"";
-    
+    NeedToPlanModel *model = self.dataArray[indexPath.row];
+        
     homePageRepaymentTableViewCell.bankNameString = model.card_bank;
     
     homePageRepaymentTableViewCell.bankInfoString = [NSString stringWithFormat:@"%@ %@", model.credit_real_name, [model.card_no substringWithRange:NSMakeRange(model.card_no.length - 4, 4)]];
@@ -149,36 +147,39 @@
         homePageRepaymentTableViewCell.endTimeString = model.card_bill_return_day_str;
         homePageRepaymentTableViewCell.planStateString = model.card_is_plan;
     }else {
-        
+        homePageRepaymentTableViewCell.shouldAsloString = model.card_current_bill_return_amount;
+        homePageRepaymentTableViewCell.asloStateString = @"2";
+        NSInteger mouthDay = [timeArray[1] integerValue];
+        for (int i = 0; i < [timeArray[0] intValue] - [retureDayArray[0] intValue]; i++) {
+            mouthDay += [self DaysfromMonth:[timeArray[0] intValue] - i - 1];
+        }
+        homePageRepaymentTableViewCell.endDayString = [NSString stringWithFormat:@"%ld", mouthDay - [retureDayArray[1] integerValue]];
+        homePageRepaymentTableViewCell.endTimeString = model.card_bill_return_day_str;
+        homePageRepaymentTableViewCell.planStateString = model.card_is_plan;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    NSDateFormatter *format = [[NSDateFormatter alloc]init];
-//    [format setDateFormat:@"dd"];
-//    NSString *dateString = [format stringFromDate:[NSDate date]];
-//    if ([dateString integerValue] > [model.card_bill_day integerValue]) {
-//        homePageRepaymentTableViewCell.asloStateString = @"0";
-//        homePageRepaymentTableViewCell.endDayString = [NSString stringWithFormat:@"%ld", [model.card_bill_return_day integerValue] - [dateString integerValue]];
-//        homePageRepaymentTableViewCell.endTimeString = model.card_bill_day_str;
-//    }else{
-//        homePageRepaymentTableViewCell.asloStateString = @"1";
-//        homePageRepaymentTableViewCell.endDayString = [NSString stringWithFormat:@"%ld", [model.card_bill_day integerValue] - [dateString integerValue]];
-//        homePageRepaymentTableViewCell.endTimeString = model.card_bill_day_str;
-//    }
-    
-    
-    
     homePageRepaymentTableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
     return homePageRepaymentTableViewCell;
+}
+
+- (NSInteger)DaysfromMonth:(NSInteger)month
+{
+    switch (month) {
+        case 1:case 3:case 5:case 7:case 8:case 10:case 12:
+            {
+                return 31;
+            }
+        case 4:case 6:case 9:case 11:
+            {
+                return 30;
+            }
+        case 2:
+            {
+                return 28;
+            }
+        default:
+            break;
+        }
+    return 0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -162,6 +162,8 @@
 
 -(void)setNameString:(NSString *)nameString{
     self.nameLabel.text = nameString;
+    self.nameLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, self.nameLabel.frame.origin.y, [DelouchLibrary sizeWithText:nameString withFont:16].width, self.nameLabel.frame.size.height);
+    self.phoneLabel.frame = CGRectMake(self.nameLabel.frame.origin.x + self.nameLabel.frame.size.width + 5 * (DelouchWidth / 375.0), self.phoneLabel.frame.origin.y, self.phoneLabel.frame.size.width, self.phoneLabel.frame.size.height);
 }
 
 -(void)setPhoneString:(NSString *)phoneString{
@@ -170,7 +172,20 @@
 
 -(void)setAddressString:(NSString *)addressString{
     NSRange range1 = [addressString rangeOfString:@"收货地址:"];
+    NSRange range2 = [addressString rangeOfString:@"收货人信息:"];
+    NSRange range3 = [addressString rangeOfString:@"(联系电话:"];
+    NSRange range4 = [addressString rangeOfString:@"),,备注"];
     self.addressLabel.text = [addressString substringWithRange:NSMakeRange(range1.location + range1.length, addressString.length - range1.location - range1.length)];
+    
+    if (range2.length > 0 && range3.length > 0) {
+        self.nameString = [addressString substringWithRange:NSMakeRange(range2.length, range3.location - range2.length)];
+    }
+    
+    if (range3.length > 0 && range4.length > 0) {
+        self.phoneString = [addressString substringWithRange:NSMakeRange(range3.length + range3.location, range4.location - range3.location - range3.length)];
+    }
+//    self.nameString = [addressString substringWithRange:NSMakeRange(range2.length, range3.location - range2.length)];
+//    self.phoneString = [addressString substringWithRange:NSMakeRange(range3.length + range3.location, range4.location - range3.location)];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

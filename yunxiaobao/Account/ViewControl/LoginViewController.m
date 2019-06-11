@@ -202,7 +202,7 @@
 
 -(UIButton *)loginButton{
     if (!_loginButton) {
-        _loginButton = [[DelouchTitleButton alloc]initButton:DelouchTitleButtonInfoMake(@"登录", 2, 255, 255, 255, 1, 86, 112, 254, 1, 16, YES, self.view) setFrame:DelouchFrameMake(FrameStatusBar, 15, 452, 345, 48)];
+        _loginButton = [[DelouchTitleButton alloc]initButton:DelouchTitleButtonInfoMake(@"登录", 2, 255, 255, 255, 1, 86, 112, 254, 1, 16, YES, self.view) setFrame:DelouchFrameMake(FrameStatusBar, 15, 393, 345, 48)];
         [self setbuttonLayer:_loginButton layerMask:3];
     }
     return _loginButton;

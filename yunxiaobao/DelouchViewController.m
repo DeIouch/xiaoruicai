@@ -60,7 +60,7 @@
 
 -(float)baseicFloat{
     if (!_baseicFloat) {
-        _baseicFloat = [UIScreen mainScreen].bounds.size.width/375.0;
+        _baseicFloat = [UIScreen mainScreen].bounds.size.width / 375.0;
     }
     return _baseicFloat;
 }

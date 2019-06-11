@@ -93,8 +93,8 @@
     NSMutableArray *array = [[NSMutableArray alloc]init];
     [array addObject:[[NSDictionary alloc]initWithObjectsAndKeys:model.real_price, @"real_price", model.pos_name, @"pos_name", model.order_num, @"order_num", nil]];
     homePageBuyedPosTableViewCell.dataArray = array;
-    homePageBuyedPosTableViewCell.nameString = model.user_name;
-    homePageBuyedPosTableViewCell.phoneString = model.phone;
+//    homePageBuyedPosTableViewCell.nameString = model.user_name;
+//    homePageBuyedPosTableViewCell.phoneString = model.phone;
     homePageBuyedPosTableViewCell.addressString = model.order_detail;
     
     switch ([model.order_status intValue]) {

@@ -55,20 +55,20 @@
     
     self.headview.lineView.hidden = YES;
     
-//    self.operationTypeLabel.text = @"未消费";
-//    [self.chooseOperationButton addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseOperation)]];
+    self.operationTypeLabel.text = @"未消费";
+    [self.chooseOperationButton addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(chooseOperation)]];
     
-//    self.array = [NSArray arrayWithObjects:@"全部",@"未消费",@"未还款",nil];
+    self.array = [NSArray arrayWithObjects:@"全部",@"未消费",@"未还款",nil];
     
-//    self.typeString = @"";
+    self.typeString = @"";
     
-//    [self.view addSubview:self.list];
+    [self.view addSubview:self.list];
     self.listShowBOOL = NO;
     self.freshBOOL = YES;
 }
 
 -(void)freshTableView{
-    [self urlHeadStr:AppOperationTodayURL urlStr:UrlTodayPlanList parameters:[NSDictionary dictionaryWithObjectsAndKeys:self.userInfoModel.user_id, @"user_id", @"1", @"flag", [NSString stringWithFormat:@"%ld", self.refreshIndex], @"page",nil] Success:^(NSDictionary *obj) {
+    [self urlHeadStr:AppOperationTodayURL urlStr:UrlTodayPlanList parameters:[NSDictionary dictionaryWithObjectsAndKeys:self.userInfoModel.user_id, @"user_id", @"1", @"flag", [NSString stringWithFormat:@"%ld", self.refreshIndex], @"page", nil] Success:^(NSDictionary *obj) {
         if (self.refreshIndex == 1) {
             [self.dataArray removeAllObjects];
         }
@@ -206,6 +206,13 @@
 -(void)dropDownListParame:(NSString *)aStr
 {
     self.operationTypeLabel.text = aStr;
+    if ([aStr isEqualToString:@"全部"]) {
+        self.typeString = @"";
+    }else if ([aStr isEqualToString:@"未消费"]) {
+        self.typeString = @"2";
+    }else if ([aStr isEqualToString:@"未还款"]) {
+        self.typeString = @"1";
+    }
 }
 
 -(void)setListShowBOOL:(BOOL)listShowBOOL{

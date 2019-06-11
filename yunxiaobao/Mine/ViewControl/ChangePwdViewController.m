@@ -117,6 +117,7 @@
         self.notiString = @"两次密码不一样";
     }else{
         [self urlHeadStr:AppInfoURL urlStr:UrlUpdatePwd parameters:[NSDictionary dictionaryWithObjectsAndKeys:self.userInfoModel.user_id, @"id", self.userInfoModel.phone, @"phone", [self md5:self.oldPwdTextField.text], @"user_pwd", [self md5:self.nowPwdTextField.text], @"user_newPwd", [self md5:self.makeSurePwdTextField.text], @"user_surePwd", nil] Success:^(NSDictionary *obj) {
+            [self preservationPhone:self.userInfoModel.phone pwd:self.nowPwdTextField.text];
             self.notiString = @"密码修改成功";
             [self.navigationController popViewControllerAnimated:YES];
         }];

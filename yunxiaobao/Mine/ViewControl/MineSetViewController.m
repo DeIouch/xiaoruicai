@@ -74,6 +74,7 @@
 }
 
 -(void)exitLogin{
+    [self preservationPhone:@"" pwd:@""];
     LoginViewController *mainVC = nil;
     for (UIViewController *vc in self.navigationController.viewControllers) {
         if ([vc isKindOfClass:[LoginViewController class]]) {

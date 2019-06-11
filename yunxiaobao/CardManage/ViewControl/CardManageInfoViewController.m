@@ -126,9 +126,6 @@
     
     (void)[[DelouchImageView alloc]initImageView:DelouchImageViewInfoMake([NSString stringWithFormat:@"logo_%@80.png", self.cardListModel.card_bank], NO, 0, self.view) setFrame:DelouchFrameMake(FrameStatusBar, 30, 94, 32, 32)];
     
-//    self.bankImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg_%@690x296.png", self.cardListModel.card_bank]];
-    
-    
     [self.billingDetailsButton addTarget:self action:@selector(changeVC:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.repaymentHistoryButton addTarget:self action:@selector(changeVC:) forControlEvents:UIControlEventTouchUpInside];
@@ -146,10 +143,8 @@
     
     self.bankNameLabel.text = self.cardListModel.card_bank;
     self.userInfoLabel.text = [NSString stringWithFormat:@"%@ | 尾号 %@", self.cardListModel.credit_real_name, [self.cardListModel.card_no substringWithRange:NSMakeRange(self.cardListModel.card_no.length - 4, 4)]];
-    [DelouchLibrary setMoneyLabel:self.shouldAlsoMoneyLabel moneyText:self.cardListModel.card_current_bill_return_amount bigFont:28 smallFont:14];
-//    self.endTimeLabel.text = [NSString stringWithFormat:@"本期应还 / %@.%@到期", dateString, self.cardListModel.card_bill_return_day];
+    
     self.totalCombinationLabel.text = [NSString stringWithFormat:@"总额度：%@", self.cardListModel.card_original_amount];
-//    self.reimbursementDayLabel.text = [NSString stringWithFormat:@"账单日/还款日：%@.%@/%@.%@", dateString, self.cardListModel.card_bill_day, dateString, self.cardListModel.card_bill_return_day];
     
     [self.ConsumptionPlanedView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(ConsumptionPlaned)]];
     
@@ -233,7 +228,35 @@
 -(void)getCardInfo{
     [self urlHeadStr:AppCardsURL urlStr:UrlCardInfo parameters:[NSDictionary dictionaryWithObjectsAndKeys:self.cardListModel.card_id, @"cardId", nil] Success:^(NSDictionary *obj) {
         NeedToPlanModel *model = [[NeedToPlanModel alloc]initModelWithDic:obj[@"result"][@"cardData"]];
-        self.endTimeLabel.text = [NSString stringWithFormat:@"本期应还 / %@到期", model.card_bill_return_day_str];
+        
+        NSDateFormatter *format1 = [[NSDateFormatter alloc] init];
+        [format1 setDateFormat:@"MM-dd"];
+        
+        NSArray *timeArray = [[format1 stringFromDate:[NSDate date]] componentsSeparatedByString:@"-"];
+        
+        NSArray *billDayArray = [[self.cardListModel.card_bill_day_str stringByAppendingString:@"日"] componentsSeparatedByString:@"月-"];
+        
+        NSArray *retureDayArray = [[self.cardListModel.card_bill_return_day_str stringByAppendingString:@"日"] componentsSeparatedByString:@"月-"];
+        
+        if ([timeArray[0] intValue] < [billDayArray[0] intValue]) {
+            self.shouldAlsoMoneyLabel.text = @"--";
+            self.endTimeLabel.text = [NSString stringWithFormat:@"本期应还 / %@出账", [[model.card_bill_day_str stringByReplacingOccurrencesOfString:@"月-" withString:@"."] stringByReplacingOccurrencesOfString:@"日" withString:@""]];
+        }else if ([timeArray[0] intValue] == [billDayArray[0] intValue] && [timeArray[1] intValue] < [billDayArray[1] intValue]) {
+            self.shouldAlsoMoneyLabel.text = @"--";
+            self.endTimeLabel.text = [NSString stringWithFormat:@"本期应还 / %@出账", [[model.card_bill_day_str stringByReplacingOccurrencesOfString:@"月-" withString:@"."] stringByReplacingOccurrencesOfString:@"日" withString:@""]];
+        }else if ([timeArray[0] intValue] < [retureDayArray[0] intValue]) {
+            [DelouchLibrary setMoneyLabel:self.shouldAlsoMoneyLabel moneyText:self.cardListModel.card_current_bill_return_amount bigFont:28 smallFont:14];
+            self.endTimeLabel.text = [NSString stringWithFormat:@"本期应还 / %@到期", [[model.card_bill_return_day_str stringByReplacingOccurrencesOfString:@"月-" withString:@"."] stringByReplacingOccurrencesOfString:@"日" withString:@""]];
+        }else if ([timeArray[0] intValue] == [retureDayArray[0] intValue] && [timeArray[1] intValue] <= [retureDayArray[1] intValue]) {
+            [DelouchLibrary setMoneyLabel:self.shouldAlsoMoneyLabel moneyText:self.cardListModel.card_current_bill_return_amount bigFont:28 smallFont:14];
+            self.endTimeLabel.text = [NSString stringWithFormat:@"本期应还 / %@到期", [[model.card_bill_return_day_str stringByReplacingOccurrencesOfString:@"月-" withString:@"."] stringByReplacingOccurrencesOfString:@"日" withString:@""]];
+        }else {
+            self.shouldAlsoMoneyLabel.text = @"--";
+            self.endTimeLabel.text = [NSString stringWithFormat:@"本期应还 / %@出账", [[model.card_bill_day_str stringByReplacingOccurrencesOfString:@"月-" withString:@"."] stringByReplacingOccurrencesOfString:@"日" withString:@""]];
+        }
+        
+        
+        
         self.reimbursementDayLabel.text = [NSString stringWithFormat:@"账单日/还款日：%@/%@", [[model.card_bill_day_str stringByReplacingOccurrencesOfString:@"月-" withString:@"."] stringByReplacingOccurrencesOfString:@"日" withString:@""], [[model.card_bill_return_day_str stringByReplacingOccurrencesOfString:@"月-" withString:@"."] stringByReplacingOccurrencesOfString:@"日" withString:@""]];
     }];
 }

@@ -23,6 +23,9 @@
     PhoneAndPwModel *phoneAndPwModel = [[PhoneAndPwModel alloc]initWithactivityModelDic:[userInfoDefault objectForKey:@"phoneAndPassWord"]];
     if (phoneAndPwModel.phoneStr.length == 11) {
         [UrlConnect postUrlHeadstr:UrlFrontLogin parameters:[NSDictionary dictionaryWithObjectsAndKeys:phoneAndPwModel.phoneStr, @"phone", phoneAndPwModel.passwordStr, @"user_pwd", nil] Success:^(NSDictionary * _Nonnull obj) {
+            NSUserDefaults *userInfoDefault = [NSUserDefaults standardUserDefaults];
+            [userInfoDefault setObject:obj[@"result"] forKey:@"userInfo"];
+            [userInfoDefault synchronize];
             MainViewController *VC = [[MainViewController alloc]init];
             UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:VC];
             self.window.rootViewController = nvc;
@@ -35,6 +38,10 @@
             UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:VC];
             self.window.rootViewController = nvc;
         }];
+    }else{
+        LoginViewController *VC = [[LoginViewController alloc]init];
+        UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:VC];
+        self.window.rootViewController = nvc;
     }
     [WXApi registerApp:@"wxd930ea5d5a258f4f"];
     

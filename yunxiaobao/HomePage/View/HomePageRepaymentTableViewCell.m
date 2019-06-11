@@ -207,6 +207,7 @@
                 self.endInstrucLabel.text = @"未出账单";
                 self.asloStateLabel.textColor = [UIColor colorWithRed:102 / 255.0 green:102 / 255.0 blue:102 / 255.0 alpha:0.7];
                 self.asloStateLabel.text = @"天后出账";
+                self.shouldAsloLabel.text = @"--";
             }
             break;
             
@@ -215,9 +216,10 @@
                 self.remainingLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
                 self.shouldAsloLabel.textColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
                 self.endDayLabel.textColor = [UIColor colorWithRed:255 / 255.0 green:68 / 255.0 blue:32 / 255.0 alpha:1];
-                self.endInstrucLabel.text = @"本期应还";
-                self.asloStateLabel.textColor = [UIColor colorWithRed:255 / 255.0 green:68 / 255.0 blue:32 / 255.0 alpha:1];
-//                self.asloStateLabel.text = @"天后出账";
+                self.endInstrucLabel.text = @"未出账单";
+                self.asloStateLabel.textColor = [UIColor colorWithRed:102 / 255.0 green:102 / 255.0 blue:102 / 255.0 alpha:0.7];
+                self.asloStateLabel.text = @"未出账";
+                self.shouldAsloLabel.text = @"--";
             }
             break;
             

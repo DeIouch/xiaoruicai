@@ -8,7 +8,10 @@
 
 #import "LoginViewController.h"
 
-@interface LoginViewController ()<UITextFieldDelegate>
+@interface LoginViewController ()<UITextFieldDelegate, UIGestureRecognizerDelegate>
+
+
+@property (nonatomic, assign)BOOL isCanUseSideBack;
 
 /**
  查看密码
@@ -40,21 +43,44 @@
 
 @implementation LoginViewController
 
-//-(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:YES];
-//    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self cancelSideBack];
+}
+//
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [super viewDidDisappear:animated];
+//    [self startSideBack];
 //}
+
+/**
+ * 关闭ios右滑返回
+ */
+-(void)cancelSideBack{
+    self.isCanUseSideBack = NO;
+    if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate=self;
+    }
+}
+
+///*
+// 开启ios右滑返回
+// */
+//- (void)startSideBack {
+//    self.isCanUseSideBack=YES;
+//    
+//    if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+//        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+//    }
+//}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer*)gestureRecognizer {
+    return self.isCanUseSideBack;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.titleString = @"";
-    if (self.phoneAndPwModel.phoneStr.length == 11) {
-        [self urlHeadStr:MyinfoIPURL urlStr:UrlFrontLogin parameters:[NSDictionary dictionaryWithObjectsAndKeys:self.phoneAndPwModel.phoneStr, @"phone", [self md5:self.phoneAndPwModel.passwordStr], @"user_pwd", nil] Success:^(NSDictionary *obj) {
-//            [self preservationPhone:self.phoneTextField.text pwd:self.pwdTextField.text];
-            [self preservationUserinfo:obj[@"result"]];
-            [self pushViewControl:@"MainViewController" propertyDic:nil];
-        }];
-    }
 }
 
 -(void)createUI{

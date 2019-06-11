@@ -74,20 +74,17 @@
 }
 
 -(void)exitLogin{
-//    [self urlHeadStr:AppInfoURL urlStr:UrlLoginExit parameters:[NSDictionary dictionaryWithObjectsAndKeys:self.userInfoModel.user_id, @"id", nil] Success:^(NSDictionary *obj) {
-        LoginViewController *mainVC = nil;
-        for (UIViewController *vc in self.navigationController.viewControllers) {
-            if ([vc isKindOfClass:[LoginViewController class]]) {
-                mainVC = (LoginViewController *)vc;
-            }
+    LoginViewController *mainVC = nil;
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:[LoginViewController class]]) {
+            mainVC = (LoginViewController *)vc;
         }
-//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//            sleep(1);
-//            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.navigationController popToViewController:mainVC animated:YES];
-//            });
-//        });
-//    }];
+    }
+    if (mainVC == nil) {
+        [self pushViewControl:@"LoginViewController" propertyDic:nil];
+    }else{
+        [self.navigationController popToViewController:mainVC animated:YES];
+    }
 }
 
 

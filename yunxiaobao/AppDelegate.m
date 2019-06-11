@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UrlConnect.h"
 #import "MainViewController.h"
 #import "LoginViewController.h"
 #import <LSLaunchAD.h>
@@ -18,20 +19,23 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-        
-//    [LSLaunchAD showWithWindow:self.window countTime:5 showCountTimeOfButton:YES showSkipButton:YES isFullScreenAD:YES localAdImgName:xuanchauntu imageURL:nil canClickAD:YES aDBlock:^(BOOL clickAD) {
-//        if(clickAD){
-////            NSLog(@"点击了广告");
-//        }else{
-            NSLog(@"完成倒计时或点击了跳转按钮");
-            //    MainViewController *VC = [[MainViewController alloc]init];
-            
+    NSUserDefaults *userInfoDefault = [NSUserDefaults standardUserDefaults];
+    PhoneAndPwModel *phoneAndPwModel = [[PhoneAndPwModel alloc]initWithactivityModelDic:[userInfoDefault objectForKey:@"phoneAndPassWord"]];
+    if (phoneAndPwModel.phoneStr.length == 11) {
+        [UrlConnect postUrlHeadstr:UrlFrontLogin parameters:[NSDictionary dictionaryWithObjectsAndKeys:phoneAndPwModel.phoneStr, @"phone", phoneAndPwModel.passwordStr, @"user_pwd", nil] Success:^(NSDictionary * _Nonnull obj) {
+            MainViewController *VC = [[MainViewController alloc]init];
+            UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:VC];
+            self.window.rootViewController = nvc;
+        } defeatBlock:^(NSString * _Nonnull obj) {
             LoginViewController *VC = [[LoginViewController alloc]init];
             UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:VC];
             self.window.rootViewController = nvc;
-//        }
-//    }];
-    
+        } faildBlock:^(id  _Nonnull obj) {
+            LoginViewController *VC = [[LoginViewController alloc]init];
+            UINavigationController *nvc = [[UINavigationController alloc]initWithRootViewController:VC];
+            self.window.rootViewController = nvc;
+        }];
+    }
     [WXApi registerApp:@"wxd930ea5d5a258f4f"];
     
     [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarBySubviews];

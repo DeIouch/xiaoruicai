@@ -9,7 +9,8 @@
 #import "MainViewController.h"
 
 @interface MainViewController ()
-//<UIGestureRecognizerDelegate>
+
+@property (nonatomic, assign)BOOL isCanUseSideBack;
 
 @property(nonatomic, strong)UIViewController *homePageVC;
 
@@ -37,20 +38,43 @@
 
 @implementation MainViewController
 
-//-(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:YES];
-//    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-//}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self cancelSideBack];
+}
 
-//-(void)viewWillDisappear:(BOOL)animated{
-//    [super viewWillDisappear:YES];
-//    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-//}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self startSideBack];
+}
+
+/**
+ * 关闭ios右滑返回
+ */
+-(void)cancelSideBack{
+    self.isCanUseSideBack = NO;
+    
+    if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate=self;
+    }
+}
+
+/*
+ 开启ios右滑返回
+ */
+- (void)startSideBack {
+    self.isCanUseSideBack=YES;
+    
+    if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+}
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer*)gestureRecognizer {
+    return self.isCanUseSideBack;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     
     [self.homePageButton addTarget:self action:@selector(vcChange:) forControlEvents:UIControlEventTouchUpInside];
     [self.cardManageButton addTarget:self action:@selector(vcChange:) forControlEvents:UIControlEventTouchUpInside];
@@ -64,8 +88,6 @@
     self.currentVC = self.homePageVC;
     [self.homePageButton setTitleColor:[UIColor colorWithRed:86 / 255.0 green:112 / 255.0 blue:254 / 255.0 alpha:1] forState:UIControlStateNormal];
     [self.homePageButton setImage:[UIImage imageNamed:icon_Home_selected] forState:UIControlStateNormal];
-    
-//    [self getFontNames];
 }
 
 - (void)getFontNames

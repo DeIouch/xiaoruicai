@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00371969D32CD668AE61CBCF /* libPods-yunxiaobao.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6866203A96FABBD9102F9CCD /* libPods-yunxiaobao.a */; };
+		24AF94F122AF53C9009D6712 /* UrlConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF94F022AF53C9009D6712 /* UrlConnect.m */; };
 		300172E22290FBB6005ACF4F /* GoRealNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 300172E12290FBB6005ACF4F /* GoRealNameView.m */; };
 		300172E52290FC81005ACF4F /* GoRealNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 300172E42290FC81005ACF4F /* GoRealNameViewController.m */; };
 		300172E82291076E005ACF4F /* IdCardCertificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 300172E72291076E005ACF4F /* IdCardCertificationViewController.m */; };
@@ -358,6 +359,8 @@
 
 /* Begin PBXFileReference section */
 		231FAB890F78F8DC2AA48806 /* Pods-yunxiaobao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yunxiaobao.debug.xcconfig"; path = "Target Support Files/Pods-yunxiaobao/Pods-yunxiaobao.debug.xcconfig"; sourceTree = "<group>"; };
+		24AF94EF22AF53C9009D6712 /* UrlConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlConnect.h; sourceTree = "<group>"; };
+		24AF94F022AF53C9009D6712 /* UrlConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlConnect.m; sourceTree = "<group>"; };
 		24CB46C895F5103B0F201DB2 /* Pods-yunxiaobaoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yunxiaobaoUITests.release.xcconfig"; path = "Target Support Files/Pods-yunxiaobaoUITests/Pods-yunxiaobaoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		300172E02290FBB6005ACF4F /* GoRealNameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoRealNameView.h; sourceTree = "<group>"; };
 		300172E12290FBB6005ACF4F /* GoRealNameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoRealNameView.m; sourceTree = "<group>"; };
@@ -1288,6 +1291,8 @@
 				94963F1622856E3C00C6D7AD /* ImageName.m */,
 				94963F2622856F0300C6D7AD /* DelouchViewController.h */,
 				94963F2522856F0300C6D7AD /* DelouchViewController.m */,
+				24AF94EF22AF53C9009D6712 /* UrlConnect.h */,
+				24AF94F022AF53C9009D6712 /* UrlConnect.m */,
 				307C03C9229667B0002234EA /* UserInfoModel.h */,
 				307C03CA229667B0002234EA /* UserInfoModel.m */,
 				94F438D1228B00D8006CE43A /* UITextView+LZBExtention.h */,
@@ -2133,6 +2138,7 @@
 				9476558E228C07160035AE30 /* OrderAddressTableViewCell.m in Sources */,
 				946DB854228AC11500D68496 /* ReimbursementPlanInfoViewController.m in Sources */,
 				94EE08E622A24DE6001D99EC /* ShareView.m in Sources */,
+				24AF94F122AF53C9009D6712 /* UrlConnect.m in Sources */,
 				944003B222A4D5E80046532B /* MakeSureIntelligentPlanViewController.m in Sources */,
 				30A7B2E22292764900200D31 /* MenuView.m in Sources */,
 				303699BB228EDB9400A9FF40 /* TodayOperationCardImmediateConsumptionTableViewCell.m in Sources */,
